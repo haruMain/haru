@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="bbsDAO">
+<mapper namespace="haru.com.bbs.service.impl.BoardMapper">
 
-	<select id="bbsList" parameterType="haru.com.bbs.service.BbsVO">
+	<!-- <select id="bbsList" parameterType="haru.com.bbs.service.BbsVO">
 		SELECT *
 		FROM SYS_BOARD_TEST02
-	</select>
+	</select> -->
+	
+	<select id="selectBbsList" resultType="bbsVO">
+        SELECT *
+        FROM SYS_BOARD_TEST02
+    </select>
 
 
 </mapper>

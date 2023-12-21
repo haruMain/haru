@@ -24,7 +24,21 @@
         <property name="username" value="hiper_dev"/>
         <property name="password" value="hiper_dev"/>
     </bean>
-     
+    
+    
+<!-- <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <property name="dataSource" ref="dataSource"/>
+    <property name="configLocation" value="classpath:egovframework/sqlmap/example/sql-mapper-config.xml"/>
+    다양한 설정 추가 가능
+</bean>
+
+
+sqlSessionTemplate 설정
+<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+    <constructor-arg index="0" ref="sqlSessionFactory"/>
+    <constructor-arg index="1" value="BATCH"/>
+</bean> -->
+    
     <!-- hsql (테스트용 메모리 DB)
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="net.sf.log4jdbc.DriverSpy"/>
