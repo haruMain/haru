@@ -2,13 +2,35 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="haru.com.bbs.service.impl.BoardMapper">
 
-	<!-- <select id="bbsList" parameterType="haru.com.bbs.service.BbsVO">
-		SELECT *
-		FROM SYS_BOARD_TEST02
-	</select> -->
+	<insert id="insertBbs">
+		INSERT INTO gangwon.sys_board_test02
+		(BBS_MASTER_ID, TITLE, CONTENT, ATCH_FILE_ID, NOTICE_YN, INS_DT, UPD_DT, HIT)
+		VALUES('', NULL, NULL, NULL, NULL, SYSDATE, SYSDATE, 0)
+	</insert>
+	
+	<update id="updateBbs">
+		UPDATE gangwon.sys_board_test02
+		SET BBS_MASTER_ID='', TITLE=NULL, CONTENT=NULL, ATCH_FILE_ID=NULL, NOTICE_YN=NULL, INS_DT=SYSDATE, UPD_DT=SYSDATE, HIT=0
+		WHERE SEQ=0
+	</update>
+	
+	<delete id="deleteBbs">
+		DELETE FROM gangwon.sys_board_test02
+		WHERE SEQ=0
+	</delete>
 	
 	<select id="selectBbsList" resultType="bbsVO">
         SELECT *
+        FROM SYS_BOARD_TEST02
+    </select>
+    
+    <select id="selectBbsTotCnt">
+    	SELECT COUNT(*)
+        FROM SYS_BOARD_TEST02
+    </select>
+    
+    <select id="selectBbs">
+    	SELECT *
         FROM SYS_BOARD_TEST02
     </select>
 

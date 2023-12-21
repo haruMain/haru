@@ -16,9 +16,18 @@
         <Logger name="jdbc.sqltiming" level="INFO" additivity="false">
             <AppenderRef ref="console" />
         </Logger>
+        <Logger name="jdbc.sqltiming" level="ERROR" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
         <Logger name="org.springframework" level="INFO" additivity="false">
             <AppenderRef ref="console" />
         </Logger>
+        <!-- SQL 결과 조회된 데이터의 table을 로그로 남긴다.-->
+        <Logger name="jdbc.resultsettable" level="ERROR" additivity="false">
+            <AppenderRef ref="console" />
+            <AppenderRef ref="dailyRollingFileAppender" />
+        </Logger>
+		
         <Root level="INFO">
             <AppenderRef ref="console" />
         </Root>

@@ -15,6 +15,8 @@
 <ul>
 	<c:forEach var="rs" items="${rsList}" varStatus="status">
 	<li>${rs.seq }</li>
+	<li>${rs.title }</li>
+	<li>${rs.content }</li>
 	</c:forEach>
 </ul>
 
