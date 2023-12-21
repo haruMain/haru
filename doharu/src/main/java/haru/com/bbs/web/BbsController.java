@@ -7,15 +7,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import egovframework.example.sample.service.SampleDefaultVO;
+import haru.com.bbs.service.BbsVO;
 
 @Controller
 public class BbsController {
 	
 	@RequestMapping(value = "/main.do")
 	public String main(@ModelAttribute("searchVO") SampleDefaultVO searchVO, ModelMap model) throws Exception {
-
-		
-
+		return "main";
+	}
+	
+	@RequestMapping(value = "/bbsList.do")
+	public String selectBbs(BbsVO vo, ModelMap model) throws Exception {
 		return "user/bbsList";
 	}
 
