@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import haru.com.bbs.service.BbsService;
+import haru.com.bbs.service.BbsVO;
 
 @Service("bbsService")
 public class BbsServiceImpl implements BbsService {
@@ -17,12 +18,18 @@ public class BbsServiceImpl implements BbsService {
 	private BbsDAO bbsDAO;
 	
 
-	public void insertBbs(Map<String, Object> commandMap) throws Exception {
-		bbsDAO.insertBbs(commandMap);
-		
+	/*
+	 * public void insertBbs(Map<String, Object> commandMap) throws Exception {
+	 * bbsDAO.insertBbs(commandMap);
+	 * 
+	 * }
+	 */
+	public void insertBbs(@RequestParam Map<String, Object> commandMap) throws Exception {
+		  bbsDAO.insertBbs(commandMap);
+		  
 	}
-	public void updateBbs(Map<String, Object> commandMap) throws Exception {
-		bbsDAO.updateBbs(commandMap);
+	public void updateBbs(BbsVO vo) throws Exception {
+		bbsDAO.updateBbs(vo);
 		
 	}
 	public void deleteBbs(Map<String, Object> commandMap) throws Exception {
@@ -35,7 +42,7 @@ public class BbsServiceImpl implements BbsService {
 	public int selectBbsTotCnt(@RequestParam Map<String, Object> commandMap) throws Exception {
 		return bbsDAO.selectBbsTotCnt(commandMap);
 	}
-	public Map<String, Object> selectBbs(int seq) throws Exception {
+	public BbsVO selectBbs(int seq) throws Exception {
 		return bbsDAO.selectBbs(seq);
 	}
 }

@@ -9,7 +9,7 @@ public interface BbsService {
 	
 	void insertBbs(@RequestParam Map<String, Object> commandMap) throws Exception;
 	
-	void updateBbs(@RequestParam Map<String, Object> commandMap) throws Exception;
+	void updateBbs(BbsVO vo) throws Exception;
 	
 	void deleteBbs(@RequestParam Map<String, Object> commandMap) throws Exception;
 	
@@ -17,6 +17,6 @@ public interface BbsService {
 	
 	int selectBbsTotCnt(@RequestParam Map<String, Object> commandMap) throws Exception;
 	
-	Map<String, Object> selectBbs(int seq) throws Exception;
+	BbsVO selectBbs(int seq) throws Exception;
 
 }

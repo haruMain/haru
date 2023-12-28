@@ -5,18 +5,23 @@
 	<insert id="insertBbs">
 		INSERT INTO gangwon.sys_board_test02
 		(BBS_MASTER_ID, TITLE, CONTENT, ATCH_FILE_ID, NOTICE_YN, INS_DT, UPD_DT, HIT)
-		VALUES('', NULL, NULL, NULL, NULL, SYSDATE, SYSDATE, 0)
+		VALUES('ff', 'ff', 'ff', 'ff', 'ff', NOW(), NOW(), 0)
 	</insert>
+<!-- 	<insert id="insertBbs">
+		INSERT INTO gangwon.sys_board_test02
+		(BBS_MASTER_ID, TITLE, CONTENT, ATCH_FILE_ID, NOTICE_YN, INS_DT, UPD_DT, HIT)
+		VALUES(#{bbsMasterId}, #{title}, #{content}, #{atchFileId}, #{noticeYn}, NOW(), NOW(), 0)
+	</insert> -->
 	
 	<update id="updateBbs">
 		UPDATE gangwon.sys_board_test02
-		SET BBS_MASTER_ID='', TITLE=NULL, CONTENT=NULL, ATCH_FILE_ID=NULL, NOTICE_YN=NULL, INS_DT=SYSDATE, UPD_DT=SYSDATE, HIT=0
-		WHERE SEQ=0
+		SET  TITLE=#{title}, CONTENT=#{content}, UPD_DT=NOW(), HIT=0
+		WHERE SEQ=#{seq}
 	</update>
 	
 	<delete id="deleteBbs">
 		DELETE FROM gangwon.sys_board_test02
-		WHERE SEQ=0
+		WHERE SEQ=#{seq}
 	</delete>
 	
 	<select id="selectBbsList" resultType="bbsVO">
@@ -24,15 +29,16 @@
         FROM SYS_BOARD_TEST02
     </select>
     
-    <select id="selectBbsTotCnt">
+    <select id="selectBbsTotCnt" resultType="bbsVO">
     	SELECT COUNT(*)
         FROM SYS_BOARD_TEST02
     </select>
     
-    <select id="selectBbs">
+    <select id="selectBbs" parameterType="int" resultType="bbsVO">
     	SELECT *
         FROM SYS_BOARD_TEST02
-    </select>
+        WHERE seq = #{seq}
+    </select> 
 
 
 </mapper>

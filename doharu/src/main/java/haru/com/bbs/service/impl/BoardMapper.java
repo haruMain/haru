@@ -5,12 +5,14 @@ import java.util.Map;
 
 import org.springframework.web.bind.annotation.RequestParam;
 
+import haru.com.bbs.service.BbsVO;
+
 
 public interface BoardMapper {
 	
 	void insertBbs(@RequestParam Map<String, Object> commandMap) throws Exception;
 	
-	void updateBbs(@RequestParam Map<String, Object> commandMap) throws Exception;
+	void updateBbs(BbsVO vo) throws Exception;
 	
 	void deleteBbs(@RequestParam Map<String, Object> commandMap) throws Exception;
 	
@@ -18,6 +20,6 @@ public interface BoardMapper {
 	
 	int selectBbsTotCnt(@RequestParam Map<String, Object> commandMap) throws Exception;
 	
-	Map<String, Object> selectBbs(int seq) throws Exception;
+	BbsVO selectBbs(int seq) throws Exception;
 
 }
